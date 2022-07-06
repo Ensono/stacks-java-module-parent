@@ -48,7 +48,7 @@ variables:
   - name: version_minor
     value: 0
   - name: version_patch
-    value: 0-RC5
+    value: 2.1
   - name: build_type
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
       value: "RELEASE"
@@ -89,7 +89,7 @@ variables:
   # Maven
   - name: maven_package_version
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
-      value: "${{ variables.version_major }}.${{ variables.version_minor }}"
+      value: "${{ variables.version_major }}.${{ variables.version_minor }}.${{ variables.version_patch }}-RELEASE"
     ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
       value: "$(Build.BuildNumber)"
   - name: maven_cache_directory
