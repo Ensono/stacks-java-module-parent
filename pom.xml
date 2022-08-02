@@ -289,21 +289,6 @@
         </exclusions>
       </dependency>
       <dependency>
-        <groupId>com.azure.spring</groupId>
-        <artifactId>azure-spring-boot-starter-cosmos</artifactId>
-        <version>${cosmosdb.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>net.minidev</groupId>
-            <artifactId>json-smart</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-codec-http</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
         <version>${applicationinsights.version}</version>
