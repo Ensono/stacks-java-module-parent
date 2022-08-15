@@ -6,7 +6,7 @@
 
   <groupId>com.amido.stacks.modules</groupId>
   <artifactId>stacks-modules-parent</artifactId>
-  <version>sdj-11-august-2022</version>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>The parent for all Stacks modules</description>
