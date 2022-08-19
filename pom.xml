@@ -341,6 +341,13 @@
         <artifactId>gson</artifactId>
         <version>${com.google.code.gson-version}</version>
       </dependency>
+      <!--  SNYK-JAVA-IONETTY-2812456-->
+      <dependency>
+        <groupId>io.netty</groupId>
+        <artifactId>netty-common</artifactId>
+        <version>4.1.79.Final</version>
+      </dependency>
+
     </dependencies>
 
 
