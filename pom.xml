@@ -67,7 +67,7 @@
     <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
     <spotbugs.version>4.2.3</spotbugs.version>
     <assertj-core.version>3.21.0</assertj-core.version>
-    <io.netty.netty-codec-http.version>4.1.72.Final</io.netty.netty-codec-http.version>
+    <io.netty.netty-codec-http.version>4.1.79.Final</io.netty.netty-codec-http.version>
     <spring.security.version>5.6.6</spring.security.version>
     <logback.version>1.2.9</logback.version>
     <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
@@ -342,11 +342,6 @@
         <version>${com.google.code.gson-version}</version>
       </dependency>
       <!--  SNYK-JAVA-IONETTY-2812456-->
-      <dependency>
-        <groupId>io.netty</groupId>
-        <artifactId>netty-common</artifactId>
-        <version>4.1.79.Final</version>
-      </dependency>
 
     </dependencies>
 
