@@ -70,7 +70,7 @@
     <io.netty.netty-codec-http.version>4.1.79.Final</io.netty.netty-codec-http.version>
     <spring.security.version>5.6.6</spring.security.version>
     <logback.version>1.2.9</logback.version>
-    <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
+    <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
 
 
