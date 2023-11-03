@@ -35,71 +35,86 @@
     <url>https://github.com/amido/stacks-java-module-parent</url>
   </scm>
 
-
   <properties>
     <!-- Dependency versions definitions-->
-    <spring-boot.version>2.6.5</spring-boot.version>
-    <spring.version>5.3.18</spring.version>
-    <auth0-spring-security-api.version>1.4.1</auth0-spring-security-api.version>
-
-    <equals-verifier.version>3.7.2</equals-verifier.version>
+    <lombok.version>1.18.26</lombok.version>
+    <auth0-spring-security-api.version>1.5.3</auth0-spring-security-api.version>
+    <equals-verifier.version>3.14.1</equals-verifier.version>
     <hamcrest.version>2.2</hamcrest.version>
     <fmt-maven-plugin.version>2.12</fmt-maven-plugin.version>
-    <io-projectreactor-netty.version>1.0.8</io-projectreactor-netty.version>
-    <jackson-databind.version>2.13.2.2</jackson-databind.version>
-    <jackson.version>2.13.2</jackson.version>
-    <jacoco.version>0.8.7</jacoco.version>
-    <java.version>11</java.version>
-    <junit-jupiter.version>5.7.2</junit-jupiter.version>
-    <lombok.version>1.18.24</lombok.version>
-    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
-    <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
-    <maven-surefire-phase>test</maven-surefire-phase>
-    <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
-    <mockito.version>3.11.2</mockito.version>
-    <org.projectlombok.version>1.18.0</org.projectlombok.version>
-    <org.springdoc-openapi.version>1.6.0</org.springdoc-openapi.version>
-    <owasp-dependency-check-plugin.version>6.4.1</owasp-dependency-check-plugin.version>
+    <io-projectreactor-netty.version>1.1.12</io-projectreactor-netty.version>
+    <jackson.version>2.15.3</jackson.version>
+    <jacoco.version>0.8.11</jacoco.version>
+    <junit-jupiter.version>5.9.2</junit-jupiter.version>
+    <mockito.version>5.2.0</mockito.version>
     <pitest.version>1.6.7</pitest.version>
     <puppycrawl-tools-checkstyle.version>8.44</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
     <spotbugs.version>4.2.3</spotbugs.version>
-    <assertj-core.version>3.21.0</assertj-core.version>
-    <io.netty.netty-codec-http.version>4.1.79.Final</io.netty.netty-codec-http.version>
-    <spring.security.version>5.6.6</spring.security.version>
-    <logback.version>1.2.9</logback.version>
-    <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
+    <assertj-core.version>3.24.2</assertj-core.version>
+    <netty.version>4.1.100.Final</netty.version>
+    <logback.version>1.4.11</logback.version>
+    <projectreactor.version>2022.0.12</projectreactor.version>
+    <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
+    <oauth2-oidc-sdk.version>11.2</oauth2-oidc-sdk.version>
+    <json.smart.version>2.5.0</json.smart.version>
+    <beust.version>1.82</beust.version>
+    <snake.yaml.version>2.2</snake.yaml.version>
 
+    <spring.boot.version>3.1.5</spring.boot.version>
+    <java.version>17</java.version>
 
     <!-- https://security.snyk.io/vuln/SNYK-JAVA-COMGOOGLECODEGSON-1730327 -->
-    <com.google.code.gson-version>2.8.9</com.google.code.gson-version>
+    <com.google.code.gson-version>2.10.1</com.google.code.gson-version>
 
     <!-- Set the encoding to UTF-8 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <!-- Set the language version -->
-    <maven.compiler.target>11</maven.compiler.target>
-    <maven.compiler.source>11</maven.compiler.source>
+    <!-- Maven plugins -->
+    <maven.compiler.release>17</maven.compiler.release>
+    <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
+    <maven-compiler-plugin.version>3.11.0</maven-compiler-plugin.version>
+    <maven-surefire-phase>test</maven-surefire-phase>
+    <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
+    <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+    <maven-owasp-dependency-check-plugin.version>8.2.1</maven-owasp-dependency-check-plugin.version>
+    <maven-javadoc-plugin.version>3.6.0</maven-javadoc-plugin.version>
+    <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+    <maven-site-plugin.version>3.12.1</maven-site-plugin.version>
+    <maven-failsafe-plugin.version>3.1.2</maven-failsafe-plugin.version>
+    <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
+    <maven-release-plugin.version>3.0.1</maven-release-plugin.version>
+    <maven-nexus-staging-plugin.version>1.6.13</maven-nexus-staging-plugin.version>
+    <maven-scm-provider-gitexe.version>1.9.5</maven-scm-provider-gitexe.version>
   </properties>
 
   <!-- Dependencies shared by ALL modules-->
   <dependencies>
+
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>${snake.yaml.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
       <version>${lombok.version}</version>
       <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>2.0.0-alpha5</version>
-    </dependency>
 
+    <!-- Logging -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+    </dependency>
 
     <!-- Mapstruct -->
     <dependency>
@@ -134,12 +149,6 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>org.hamcrest</groupId>
       <artifactId>hamcrest</artifactId>
       <version>${hamcrest.version}</version>
@@ -162,61 +171,18 @@
   <!-- Optional dependencies, must be pulled explicitly by modules -->
   <dependencyManagement>
     <dependencies>
-
-      <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>4.0.1</version>
-      </dependency>
-
       <dependency>
         <groupId>io.projectreactor</groupId>
         <artifactId>reactor-bom</artifactId>
-        <version>2020.0.8</version>
+        <version>${projectreactor.version}</version>
         <type>pom</type>
       </dependency>
       <dependency>
-        <groupId>org.springframework</groupId>
-        <artifactId>spring-context</artifactId>
-        <version>${spring.version}</version>
-      </dependency>
-      <dependency>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter</artifactId>
-        <version>${spring-boot.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-actuator</artifactId>
-        <version>${spring-boot.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-        <version>${spring-boot.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springdoc</groupId>
-        <artifactId>springdoc-openapi-ui</artifactId>
-        <version>${org.springdoc-openapi.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springdoc</groupId>
-        <artifactId>springdoc-openapi-data-rest</artifactId>
-        <version>${org.springdoc-openapi.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>net.minidev</groupId>
-            <artifactId>json-smart</artifactId>
-          </exclusion>
-        </exclusions>
-
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>${spring.boot.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -226,7 +192,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>${jackson-databind.version}</version>
+        <version>${jackson.version}</version>
       </dependency>
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
@@ -238,14 +204,11 @@
         <artifactId>jackson-datatype-jsr310</artifactId>
         <version>${jackson.version}</version>
       </dependency>
-
-
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
         <version>${logback.version}</version>
       </dependency>
-
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
@@ -262,41 +225,11 @@
           </exclusion>
         </exclusions>
       </dependency>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-        <version>${spring-boot.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-          </exclusion>
-          <exclusion>
-            <groupId>com.vaadin.external.google</groupId>
-            <artifactId>android-json</artifactId>
-          </exclusion>
-        </exclusions>
-      </dependency>
       <!-- Registering the Auth0 Dependency-->
       <dependency>
         <groupId>com.auth0</groupId>
         <artifactId>auth0-spring-security-api</artifactId>
         <version>${auth0-spring-security-api.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.security</groupId>
-        <artifactId>spring-security-core</artifactId>
-        <version>${spring.security.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.springframework.security</groupId>
-        <artifactId>spring-security-web</artifactId>
-        <version>${spring.security.version}</version>
       </dependency>
       <dependency>
         <groupId>org.pitest</groupId>
@@ -307,50 +240,47 @@
       <dependency>
         <groupId>com.nimbusds</groupId>
         <artifactId>oauth2-oidc-sdk</artifactId>
-        <version>9.9</version>
+        <version>${oauth2-oidc-sdk.version}</version>
         <scope>runtime</scope>
       </dependency>
       <dependency>
         <groupId>net.minidev</groupId>
         <artifactId>json-smart</artifactId>
-        <version>2.4.7</version>
+        <version>${json.smart.version}</version>
       </dependency>
       <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-codec-http</artifactId>
-        <version>${io.netty.netty-codec-http.version}</version>
+        <version>${netty.version}</version>
       </dependency>
       <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-codec</artifactId>
-        <version>${io.netty.netty-codec-http.version}</version>
+        <version>${netty.version}</version>
       </dependency>
       <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-common</artifactId>
-        <version>${io.netty.netty-codec-http.version}</version>
+        <version>${netty.version}</version>
       </dependency>
       <dependency>
         <groupId>io.netty</groupId>
         <artifactId>netty-handler</artifactId>
-        <version>${io.netty.netty-codec-http.version}</version>
+        <version>${netty.version}</version>
       </dependency>
       <dependency>
         <groupId>com.beust</groupId>
         <artifactId>jcommander</artifactId>
-        <version>1.81</version>
+        <version>${beust.version}</version>
       </dependency>
       <!-- https://security.snyk.io/vuln/SNYK-JAVA-COMGOOGLECODEGSON-1730327 -->
+      <!--  SNYK-JAVA-IONETTY-2812456-->
       <dependency>
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
         <version>${com.google.code.gson-version}</version>
       </dependency>
-      <!--  SNYK-JAVA-IONETTY-2812456-->
-
     </dependencies>
-
-
   </dependencyManagement>
 
   <distributionManagement>
@@ -373,7 +303,7 @@
           <plugin>
             <groupId>org.owasp</groupId>
             <artifactId>dependency-check-maven</artifactId>
-            <version>${owasp-dependency-check-plugin.version}</version>
+            <version>${maven-owasp-dependency-check-plugin.version}</version>
             <executions>
               <execution>
                 <goals>
@@ -410,16 +340,6 @@
           <groupId>org.jacoco</groupId>
           <artifactId>jacoco-maven-plugin</artifactId>
           <version>${jacoco.version}</version>
-          <!--                    TODO: excludes to be moved to individual modules poms -->
-          <configuration>
-            <excludes>
-              <exclude>**/AuthControllerImpl*</exclude>
-              <exclude>**/ApplicationConfig*</exclude>
-            </excludes>
-            <!--                    TO DO Review the configuration-->
-            <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
-            <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
-          </configuration>
           <executions>
             <execution>
               <goals>
@@ -477,20 +397,28 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
-        <version>3.7.1</version>
+        <version>${maven-site-plugin.version}</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-failsafe-plugin</artifactId>
-        <version>3.0.0-M5</version>
+        <version>${maven-failsafe-plugin.version}</version>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <source>${maven.compiler.source}</source>
-          <target>${maven.compiler.target}</target>
+          <release>${maven.compiler.release}</release>
           <annotationProcessorPaths>
             <path>
               <groupId>org.projectlombok</groupId>
@@ -570,7 +498,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-deploy-plugin</artifactId>
-        <version>2.8.2</version>
+        <version>${maven-deploy-plugin.version}</version>
         <executions>
           <execution>
             <id>default-deploy</id>
@@ -584,7 +512,7 @@
       <plugin>
         <groupId>org.sonatype.plugins</groupId>
         <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.7</version>
+        <version>${maven-nexus-staging-plugin.version}</version>
         <extensions>true</extensions>
         <configuration>
           <serverId>ossrh</serverId>
@@ -595,7 +523,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.3</version>
+        <version>${maven-release-plugin.version}</version>
         <configuration>
           <localCheckout>true</localCheckout>
           <pushChanges>false</pushChanges>
@@ -605,7 +533,7 @@
           <dependency>
             <groupId>org.apache.maven.scm</groupId>
             <artifactId>maven-scm-provider-gitexe</artifactId>
-            <version>1.9.5</version>
+            <version>${maven-scm-provider-gitexe.version}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -613,7 +541,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
+        <version>${maven-source-plugin.version}</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -626,7 +554,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>3.3.2</version>
+        <version>${maven-javadoc-plugin.version}</version>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -639,7 +567,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.5</version>
+        <version>${maven-gpg-plugin.version}</version>
         <executions>
           <execution>
             <id>sign-artifacts</id>
@@ -650,6 +578,40 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>${pitest.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>0.14</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>pitest</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>mutationCoverage</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <threads>15</threads>
+          <historyInputFile>target/pitHistory.txt</historyInputFile>
+          <historyOutputFile>target/pitHistory.txt</historyOutputFile>
+          <timestampedReports>false</timestampedReports>
+          <mutators>
+            <value>STRONGER</value>
+          </mutators>
+          <outputFormats>
+            <outputFormat>XML</outputFormat>
+            <outputFormat>HTML</outputFormat>
+          </outputFormats>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -658,13 +620,11 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-report-plugin</artifactId>
-        <configuration>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.owasp</groupId>
         <artifactId>dependency-check-maven</artifactId>
-        <version>${owasp-dependency-check-plugin.version}</version>
+        <version>${maven-owasp-dependency-check-plugin.version}</version>
       </plugin>
       <plugin>
         <groupId>com.github.spotbugs</groupId>
