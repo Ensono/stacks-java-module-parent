@@ -28,7 +28,7 @@ resources:
       ref: feature/cycle4
       # EXCHANGE THIS FOR YOUR OWN ENDPOINT CONNECTION TO GITHUB
       # REPOSITORY IS PUBLIC
-      endpoint: amidostacks
+      endpoint: ensonostacks
 
   containers:
     # Container for Java Build and Testing
@@ -53,7 +53,7 @@ stages:
     variables:
       # You can find notes in the READMEs around which values to use for each ENV variable group
       - group: stacks-credentials-nonprod-kv
-      - group: amido-stacks-java-modules
+      - group: stacks-java-modules
     jobs:
       - job: ModuleBuild
         pool:
