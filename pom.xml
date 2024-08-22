@@ -10,7 +10,7 @@
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>The parent for all Stacks modules</description>
-  <url>https://github.com/amido/stacks-java-module-parent.git</url>
+  <url>https://github.com/Ensono/stacks-java-module-parent.git</url>
 
   <licenses>
     <license>
@@ -21,18 +21,18 @@
 
   <developers>
     <developer>
-      <name>Amido</name>
-      <email>stacks@amido.com</email>
-      <organization>Amido</organization>
-      <organizationUrl>http://www.amido.com</organizationUrl>
+      <name>Ensono Digital</name>
+      <email>stacks@ensono.com</email>
+      <organization>Ensono</organization>
+      <organizationUrl>http://www.ensono.com</organizationUrl>
     </developer>
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com:amido/stacks-java-module-parent.git</connection>
-    <developerConnection>scm:git:ssh://github.com:amido/stacks-java-module-parent.git
+    <connection>scm:git:git@github.com:Ensono/stacks-java-module-parent.git</connection>
+    <developerConnection>scm:git:ssh://github.com:Ensono/stacks-java-module-parent.git
     </developerConnection>
-    <url>https://github.com/amido/stacks-java-module-parent</url>
+    <url>https://github.com/Ensono/stacks-java-module-parent</url>
   </scm>
 
   <properties>
@@ -42,7 +42,7 @@
     <equals-verifier.version>3.14.1</equals-verifier.version>
     <hamcrest.version>2.2</hamcrest.version>
     <fmt-maven-plugin.version>2.12</fmt-maven-plugin.version>
-    <io-projectreactor-netty.version>1.1.12</io-projectreactor-netty.version>
+    <io-projectreactor-netty.version>1.1.22</io-projectreactor-netty.version>
     <jackson.version>2.15.3</jackson.version>
     <jacoco.version>0.8.11</jacoco.version>
     <junit-jupiter.version>5.9.2</junit-jupiter.version>
@@ -52,8 +52,8 @@
     <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
     <spotbugs.version>4.2.3</spotbugs.version>
     <assertj-core.version>3.24.2</assertj-core.version>
-    <netty.version>4.1.100.Final</netty.version>
-    <logback.version>1.4.11</logback.version>
+    <netty.version>4.1.112.Final</netty.version>
+    <logback.version>1.4.14</logback.version>
     <projectreactor.version>2022.0.12</projectreactor.version>
     <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
