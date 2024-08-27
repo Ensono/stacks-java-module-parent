@@ -30,6 +30,8 @@ resources:
       # REPOSITORY IS PUBLIC
       endpoint: ensonostacks
 
+  # NOTE: To use the branch release containers, prefix with ensonostackseuweirdfmu.azurecr.io/
+  # i.e. ensonostackseuweirdfmu.azurecr.io/ensono/eir-java:1.1.216
   containers:
     # Container for Java Build and Testing
     # Container for Sonar Scanner
@@ -113,11 +115,10 @@ stages:
               sonar_project_name: "$(SONAR_PROJECT_NAME)"
               sonar_project_key: "$(SONAR_PROJECT_KEY)"
               sonar_token: "$(SONAR_TOKEN)"
-              sonar_organisation: "$(SONAR_ORGANIZATION)"
+              sonar_organisation: "$(SONAR_ORGANISATION)"
               # Probably `GitHub` or `vsts`
               sonar_pullrequest_provider: "GitHub"
               sonar_remote_repo: "${{ variables.self_remote_repo }}"
-              sonar_command: "${{ variables.sonar_command }}"
               # Docker
               docker_image_tag: "${{ variables.docker_image_tag }}"
 
