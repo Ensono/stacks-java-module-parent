@@ -34,10 +34,10 @@ resources:
     # Container for Java Build and Testing
     # Container for Sonar Scanner
     - container: azul_java
-      image: ensono/eir-java:1.1.214
+      image: ensonostackseuweirdfmu.azurecr.io/ensono/eir-java:1.1.216
     # Container for Kubernetes Deployment
     - container: k8s_deploy
-      image: ensono/eir-infrastructure:1.1.214
+      image: ensonostackseuweirdfmu.azurecr.io/ensono/eir-infrastructure:1.1.216
 
 variables:
   - template: azuredevops-vars.yml
