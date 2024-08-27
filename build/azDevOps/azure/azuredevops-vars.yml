@@ -2,7 +2,7 @@ variables:
   - name: region
     value: westeurope
   - name: company
-    value: amido
+    value: Ensono
   - name: project
     value: stacks
   - name: domain
@@ -23,7 +23,7 @@ variables:
   # It is case sensitive for TFS based repos
 
   - name: self_remote_repo
-    value: "amido/$(self_repo)"
+    value: "Ensono/$(self_repo)"
   - name: self_post_deploy_test_src
     value: "api-tests"
   - name: self_repo_dir
@@ -84,7 +84,7 @@ variables:
 
   # DEFAULT IMAGE RUNNER
   - name: pool_vm_image
-    value: ubuntu-22.04
+    value: ubuntu-24.04
 
   # Maven
   - name: maven_package_version

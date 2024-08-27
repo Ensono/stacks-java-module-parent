@@ -32,18 +32,12 @@ resources:
 
   containers:
     # Container for Java Build and Testing
-    - container: azul_java
-      image: amidostacks/runner-pwsh-java:0.3.94-main
-    # Container for inlining Jacoco assets as Azure DevOps strips them
-    # https://github.com/microsoft/azure-pipelines-tasks/issues/3027
-    - container: node
-      image: amidostacks/node-14:0.0.1
     # Container for Sonar Scanner
-    - container: sonar_scanner
-      image: amidostacks/ci-sonarscanner:0.0.2
+    - container: azul_java
+      image: ensono/eir-java:1.1.214
     # Container for Kubernetes Deployment
     - container: k8s_deploy
-      image: amidostacks/ci-k8s:0.0.12
+      image: ensono/eir-infrastructure:1.1.214
 
 variables:
   - template: azuredevops-vars.yml
@@ -53,13 +47,16 @@ stages:
     variables:
       # You can find notes in the READMEs around which values to use for each ENV variable group
       - group: stacks-credentials-nonprod-kv
+      - group: sonar-credentials
       - group: stacks-java-modules
+      - group: stacks-java-modules-parent
     jobs:
       - job: ModuleBuild
         pool:
           vmImage: $(pool_vm_image)
         steps:
           - checkout: self
+            fetchDepth: 0
 
           - checkout: templates
 
@@ -98,7 +95,6 @@ stages:
               gpg_private_key: "$(gpg-private-key)"
               vulnerability_scan_report: "${{ variables.vulnerability_scan_report }}"
 
-
           # Performs static code analysis, such as Sonar Cloud
           - template: azDevOps/azure/templates/steps/java/test-static-code-analysis.yml@templates
             parameters:
@@ -109,9 +105,9 @@ stages:
               target_branch_ref: "$(target_branch_ref)"
               pullrequest_number: "$(pullrequest_number)"
               # Sonar
-              sonar_enable: ${{ variables.sonar_enable }}
-              sonar_container: "${{ variables.sonar_container }}"
-              sonar_host_url: "${{ variables.sonar_host_url }}"
+              sonar_enable: true
+              sonar_container: "azul_java"
+              sonar_host_url: "https://sonarcloud.io"
               sonar_project_name: "$(SONAR_PROJECT_NAME)"
               sonar_project_key: "$(SONAR_PROJECT_KEY)"
               sonar_token: "$(SONAR_TOKEN)"
