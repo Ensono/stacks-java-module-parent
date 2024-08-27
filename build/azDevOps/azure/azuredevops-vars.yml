@@ -117,6 +117,10 @@ variables:
     value: "target/dependency-check-report.html"
   - name: vulnerability_scan_fail_build_on_detection
     value: false
+  - name: vulnerability_scan_api_key
+    value: "$(VULNERABILITY_SCAN_API_KEY)"
+  - name: vulnerability_scan_database_directory
+    value: ${{ variables.self_repo_dir }}/.vulnerability-database
 
   # Yamllint
   - name: yamllint_config_file

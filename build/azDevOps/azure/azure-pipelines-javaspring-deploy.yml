@@ -88,6 +88,8 @@ stages:
               # Vulnerability Scanning
               vulnerability_scan: "${{ variables.vulnerability_scan }}"
               vulnerability_scan_fail_build_on_detection: "${{ variables.vulnerability_scan_fail_build_on_detection }}"
+              vulnerability_scan_api_key: ${{ variables.vulnerability_scan_api_key }}
+              vulnerability_scan_database_directory: ${{ variables.vulnerability_scan_database_directory }}
               project_type: "${{ variables.java_project_type }}"
               build_type: "${{ variables.build_type }}"
               # private  key id  to sign doc
@@ -135,6 +137,7 @@ stages:
               functional_test_artefact_path: "${{ variables.functional_test_artefact_path }}"
               vulnerability_scan: "${{ variables.vulnerability_scan }}"
               vulnerability_scan_report: "${{ variables.vulnerability_scan_report }}"
+              vulnerability_scan_database_directory: "${{ variables.vulnerability_scan_database_directory }}"
               java_project_type: "${{ variables.java_project_type }}"
               functional_test_project_type: "${{ variables.functional_test_project_type }}"
               # Docker
@@ -177,9 +180,6 @@ stages:
               ossrh_jira_password: "$(ossrh-jira-password)"
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
-              # Vulnerability Scanning
-              vulnerability_scan: "${{ variables.vulnerability_scan }}"
-              vulnerability_scan_fail_build_on_detection: "${{ variables.vulnerability_scan_fail_build_on_detection }}"
               project_type: "${{ variables.java_project_type }}"
               build_type: "${{ variables.build_type }}"
               # private  key id  to sign doc
