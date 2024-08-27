@@ -51,7 +51,7 @@ stages:
       - group: stacks-credentials-nonprod-kv
       - group: sonar-credentials
       - group: stacks-java-modules
-      - group: stacks-java-modules-parent
+      - group: stacks-java-module-parent
     jobs:
       - job: ModuleBuild
         pool:
