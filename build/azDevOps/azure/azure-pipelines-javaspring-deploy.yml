@@ -31,15 +31,15 @@ resources:
       endpoint: ensonostacks
 
   # NOTE: To use the branch release containers, prefix with ensonostackseuweirdfmu.azurecr.io/
-  # i.e. ensonostackseuweirdfmu.azurecr.io/ensono/eir-java:1.1.216
+  # i.e. ensonostackseuweirdfmu.azurecr.io/ensono/eir-java:1.1.222
   containers:
     # Container for Java Build and Testing
     # Container for Sonar Scanner
     - container: azul_java
-      image: ensonostackseuweirdfmu.azurecr.io/ensono/eir-java:1.1.216
+      image: ensono/eir-java:1.1.222
     # Container for Kubernetes Deployment
     - container: k8s_deploy
-      image: ensonostackseuweirdfmu.azurecr.io/ensono/eir-infrastructure:1.1.216
+      image: ensono/eir-infrastructure:1.1.222
 
 variables:
   - template: azuredevops-vars.yml
