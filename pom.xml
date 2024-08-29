@@ -38,7 +38,7 @@
 
   <properties>
     <!-- Dependency versions definitions-->
-    <lombok.version>1.18.26</lombok.version>
+    <lombok.version>1.18.34</lombok.version>
     <auth0-spring-security-api.version>1.5.3</auth0-spring-security-api.version>
     <equals-verifier.version>3.14.1</equals-verifier.version>
     <hamcrest.version>2.2</hamcrest.version>
