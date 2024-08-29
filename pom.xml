@@ -49,7 +49,7 @@
     <junit-jupiter.version>5.9.2</junit-jupiter.version>
     <mockito.version>5.2.0</mockito.version>
     <pitest.version>1.6.7</pitest.version>
-    <puppycrawl-tools-checkstyle.version>8.44</puppycrawl-tools-checkstyle.version>
+    <puppycrawl-tools-checkstyle.version>10.18.0</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
     <spotbugs.version>4.2.3</spotbugs.version>
     <assertj-core.version>3.24.2</assertj-core.version>
