@@ -2,7 +2,7 @@ variables:
   - name: region
     value: westeurope
   - name: company
-    value: amido
+    value: Ensono
   - name: project
     value: stacks
   - name: domain
@@ -23,7 +23,7 @@ variables:
   # It is case sensitive for TFS based repos
 
   - name: self_remote_repo
-    value: "amido/$(self_repo)"
+    value: "Ensono/$(self_repo)"
   - name: self_post_deploy_test_src
     value: "api-tests"
   - name: self_repo_dir
@@ -84,7 +84,7 @@ variables:
 
   # DEFAULT IMAGE RUNNER
   - name: pool_vm_image
-    value: ubuntu-22.04
+    value: ubuntu-24.04
 
   # Maven
   - name: maven_package_version
@@ -117,6 +117,10 @@ variables:
     value: "target/dependency-check-report.html"
   - name: vulnerability_scan_fail_build_on_detection
     value: false
+  - name: vulnerability_scan_api_key
+    value: "$(VULNERABILITY_SCAN_API_KEY)"
+  - name: vulnerability_scan_database_directory
+    value: ${{ variables.self_repo_dir }}/.vulnerability-database
 
   # Yamllint
   - name: yamllint_config_file
