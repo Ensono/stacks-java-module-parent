@@ -126,14 +126,22 @@ variables:
 
   # Build Task Naming
   - name: java_project_type
-    value: "Java App"
+    value: "Java Module Parent"
   - name: functional_test_project_type
     value: "Functional API Tests"
 
   # GitHub infomration
   - name: create_release
     value: true
-  - name: github_release_service_connection
-    value: GitHubReleases
   - name: github_org
     value: $(company)
+  - name: VERSION_NUMBER
+    value: $(Build.BuildNumber)
+  - name: COMMIT_ID
+    value: $(Build.SourceVersion)
+  - name: OWNER
+    value: ensono
+  - name: REPOSITORY
+    value: stacks-java-module-parent
+  - name: ARTIFACTS_DIR
+    value: artifacts/

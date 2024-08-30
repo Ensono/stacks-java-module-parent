@@ -199,6 +199,5 @@ stages:
             env:
               STAGE: "release"
               PUBLISH_RELEASE: "true"
-              VERSION_NUMBER: $(BUILD_BUILDNUMBER)
             target:
               container: k8s_deploy
