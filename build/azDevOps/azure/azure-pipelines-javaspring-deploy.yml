@@ -94,7 +94,7 @@ stages:
               vulnerability_scan_database_directory: ${{ variables.vulnerability_scan_database_directory }}
               project_type: "${{ variables.java_project_type }}"
               build_type: "${{ variables.build_type }}"
-              # private  key id  to sign doc
+              # private key id to sign doc
               gpg_key_signing_id: "$(gpg-key-signing-id)"
               gpg_private_key: "$(gpg-private-key)"
               vulnerability_scan_report: "${{ variables.vulnerability_scan_report }}"
@@ -185,11 +185,12 @@ stages:
               docker_build_container: "${{ variables.docker_java_image }}"
               project_type: "${{ variables.java_project_type }}"
               build_type: "${{ variables.build_type }}"
-              # private  key id  to sign doc
+              # private key id to sign doc
               gpg_private_key: "$(gpg-private-key)"
               gpg_key_signing_id: "$(gpg-key-signing-id)"
 
           - task: PowerShell@2
+            condition: eq(variables['build_type'], 'RELEASE')
             inputs:
               targetType: inline
               script: |
