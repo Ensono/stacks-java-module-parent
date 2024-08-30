@@ -143,5 +143,3 @@ variables:
     value: ensono
   - name: REPOSITORY
     value: stacks-java-module-parent
-  - name: ARTIFACTS_DIR
-    value: artifacts/
