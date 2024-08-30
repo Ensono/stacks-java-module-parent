@@ -194,7 +194,7 @@ stages:
             inputs:
               targetType: inline
               script: |
-                Import-Module EnsonoBuild
+                Import-Module /modules/EnsonoBuild
                 Publish-GitHubRelease -GenerateReleaseNotes $true
             env:
               STAGE: "release"
