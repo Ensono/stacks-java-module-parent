@@ -148,6 +148,8 @@ stages:
         dependsOn: ModuleBuild
         pool:
           vmImage: $(pool_vm_image)
+        variables:
+          - group: release-github-credentials
         steps:
           - checkout: self
 
@@ -186,3 +188,15 @@ stages:
               # private  key id  to sign doc
               gpg_private_key: "$(gpg-private-key)"
               gpg_key_signing_id: "$(gpg-key-signing-id)"
+
+          - task: PowerShell@2
+            inputs:
+              targetType: inline
+              script: |
+                Publish-GitHubRelease -GenerateReleaseNotes $true
+            env:
+              STAGE: "release"
+              PUBLISH_RELEASE: "true"
+              VERSION_NUMBER: $(BUILD_BUILDNUMBER)
+            target:
+              container: k8s_deploy
