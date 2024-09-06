@@ -27,4 +27,3 @@ java/emulatorcert.crt
 
 *.crt
 /.vscode/
-/.mvn/
