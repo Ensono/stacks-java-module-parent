@@ -6,7 +6,8 @@
 
   <groupId>com.amido.stacks.modules</groupId>
   <artifactId>stacks-modules-parent</artifactId>
-  <!-- NOTE: This will be replaced by the build number in the Pipeline, do NOT use this as the version number in your projects -->
+  <!-- NOTE: This will be replaced by the build number in the Pipeline, do NOT use this as the
+  version number in your projects -->
   <version>1.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
@@ -47,7 +48,7 @@
     <jackson.version>2.17.2</jackson.version>
     <jacoco.version>0.8.12</jacoco.version>
     <junit-jupiter.version>5.11.0</junit-jupiter.version>
-    <mockito.version>5.2.0</mockito.version>
+    <mockito.version>5.13.0</mockito.version>
     <pitest.version>1.6.7</pitest.version>
     <puppycrawl-tools-checkstyle.version>10.18.1</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
@@ -63,7 +64,7 @@
     <beust.version>1.82</beust.version>
     <snake.yaml.version>2.2</snake.yaml.version>
 
-    <spring.boot.version>3.1.5</spring.boot.version>
+    <spring.boot.version>3.3.3</spring.boot.version>
     <java.version>17</java.version>
 
     <!-- https://security.snyk.io/vuln/SNYK-JAVA-COMGOOGLECODEGSON-1730327 -->
@@ -133,13 +134,7 @@
     <!--  Test dependencies-->
     <dependency>
       <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <version>${junit-jupiter.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
+      <artifactId>junit-jupiter</artifactId>
       <version>${junit-jupiter.version}</version>
       <scope>test</scope>
     </dependency>
@@ -389,7 +384,7 @@
           <displayFiles>true</displayFiles>
           <verbose>true</verbose>
           <filesNamePattern>.*\.java</filesNamePattern>
-          <additionalSourceDirectories/>
+          <additionalSourceDirectories />
           <skip>false</skip>
           <skipSortingImports>false</skipSortingImports>
           <style>google</style>
@@ -463,7 +458,8 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${maven-checkstyle-plugin.version}</version>
         <dependencies>
-          <!--Specify Dependent checkstyle Edition-->
+          <!--Specify
+          Dependent checkstyle Edition-->
           <dependency>
             <groupId>com.puppycrawl.tools</groupId>
             <artifactId>checkstyle</artifactId>
