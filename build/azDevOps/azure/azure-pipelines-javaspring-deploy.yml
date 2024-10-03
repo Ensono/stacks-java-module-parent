@@ -52,7 +52,7 @@ stages:
       - group: sonar-credentials
       - group: stacks-java-modules
       - group: stacks-java-module-parent
-      - group: maven_credentials
+      - group: maven-credentials
     jobs:
       - job: ModuleBuild
         pool:
