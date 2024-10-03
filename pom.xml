@@ -534,8 +534,8 @@
             <artifactId>maven-scm-provider-gitexe</artifactId>
             <version>${maven-scm-provider-gitexe.version}</version>
           </dependency>
-        </dependencies> -->
-      </plugin>
+        </dependencies>
+      </plugin> -->
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
