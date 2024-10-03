@@ -161,6 +161,7 @@ stages:
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
 
+      # yamllint disable rule:comments-indentation
       # - job: ArchetypeBuild
       #   dependsOn: ModuleBuild
       #   pool:
