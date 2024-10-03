@@ -51,7 +51,7 @@ variables:
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
       value: "RELEASE"
     ${{ else }}:
-      value: "SNAPSHOT"
+      value: "PR"
 
   # PR / Branch vars
   - name: source_branch_ref
