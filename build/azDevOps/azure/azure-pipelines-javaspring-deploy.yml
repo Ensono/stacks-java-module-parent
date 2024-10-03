@@ -132,9 +132,9 @@ stages:
               project_type: "${{ variables.java_project_type }}"
               build_type: "${{ variables.build_type }}"
               # MAVEN CENTRAL
-              maven_id: "$(maven_id)"
-              maven_username: "$(maven_username)"
-              maven_password: "$(maven_password)"
+              maven_id: "$(MAVEN_ID)"
+              maven_username: "$(MAVEN_USERNAME)"
+              maven_password: "$(MAVEN_PASSWORD)"
               # private key id to sign doc
               gpg_key_signing_id: "$(gpg-key-signing-id)"
               gpg_private_key: "$(gpg-private-key)"
