@@ -177,7 +177,7 @@ stages:
               yamllint_config_file: "${{ variables.yamllint_config_file }}"
               yamllint_scan_directory: "${{ variables.yamllint_scan_directory }}"
 
-          # Builds the Java archetype and deploy to the artifact repository
+          # Builds the Java archetype
           - template: azDevOps/azure/templates/steps/java/build-java-archetype.yml@templates
             parameters:
               repo_root_dir: "${{ variables.self_repo_dir }}"
