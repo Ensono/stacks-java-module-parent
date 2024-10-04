@@ -16,8 +16,6 @@ deploy.
 
 ```
 java
-\_.mvn
-: |_settings.xml
 |_archetype.properties
 |_pom.xml
 ```
