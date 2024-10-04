@@ -7,7 +7,7 @@
 # NB: Some resources e.g. blob storage only allow for alpha numeric characters so the name is adjusted accordingly          #
 #  ==> `$company$project$stage$domain`                                                                                      #
 #############################################################################################################################
-name: $(version_major).$(version_minor).$(Rev:r)-$(build_type)
+name: $(version_major).$(version_minor).$(Rev:r)$(build_type)
 
 pr:
   - main
@@ -80,22 +80,18 @@ stages:
               # Maven
               maven_cache_directory: "${{ variables.maven_cache_directory }}"
               maven_surefire_reports_dir: "${{ variables.maven_surefire_reports_dir }}"
-              maven_allowed_test_tags: "${{ variables.maven_allowed_test_tags}}"
+              maven_allowed_test_tags: "${{ variables.maven_allowed_test_tags }}"
               maven_package_version: "${{ variables.maven_package_version }}"
-              maven_settings_file: "${{ variables.maven_settings_file }}"
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
               # Vulnerability Scanning
               vulnerability_scan: "${{ variables.vulnerability_scan }}"
               vulnerability_scan_fail_build_on_detection: "${{ variables.vulnerability_scan_fail_build_on_detection }}"
+              vulnerability_scan_report: "${{ variables.vulnerability_scan_report }}"
               vulnerability_scan_api_key: ${{ variables.vulnerability_scan_api_key }}
               vulnerability_scan_database_directory: ${{ variables.vulnerability_scan_database_directory }}
               project_type: "${{ variables.java_project_type }}"
               build_type: "${{ variables.build_type }}"
-              # private key id to sign doc
-              gpg_key_signing_id: "$(gpg-key-signing-id)"
-              gpg_private_key: "$(gpg-private-key)"
-              vulnerability_scan_report: "${{ variables.vulnerability_scan_report }}"
 
           # Performs static code analysis, such as Sonar Cloud
           - template: azDevOps/azure/templates/steps/java/test-static-code-analysis.yml@templates
@@ -161,62 +157,70 @@ stages:
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
 
-      # yamllint disable rule:comments-indentation
-      # - job: ArchetypeBuild
-      #   dependsOn: ModuleBuild
-      #   pool:
-      #     vmImage: $(pool_vm_image)
-      #   variables:
-      #     - group: release-github-credentials
-      #   steps:
-      #     - checkout: self
+      - job: ArchetypeBuild
+        dependsOn: ModuleBuild
+        pool:
+          vmImage: $(pool_vm_image)
+        variables:
+          - group: release-github-credentials
+        steps:
+          - checkout: self
 
-      #     - checkout: templates
+          - checkout: templates
 
-      #     # Validates all YAML files in the repo to check they adhere to standards
-      #     - template: azDevOps/azure/templates/steps/java/test-validate-yaml.yml@templates
-      #       parameters:
-      #         pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
-      #         container: "k8s_deploy"
-      #         yamllint_config_file: "${{ variables.yamllint_config_file }}"
-      #         yamllint_scan_directory: "${{ variables.yamllint_scan_directory }}"
+          # Validates all YAML files in the repo to check they adhere to standards
+          - template: azDevOps/azure/templates/steps/java/test-validate-yaml.yml@templates
+            parameters:
+              pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
+              container: "k8s_deploy"
+              yamllint_config_file: "${{ variables.yamllint_config_file }}"
+              yamllint_scan_directory: "${{ variables.yamllint_scan_directory }}"
 
-      #     # Builds the Java archetype and deploy to the artifact repository
-      #     - template: azDevOps/azure/templates/steps/java/build-java-archetype.yml@templates
-      #       parameters:
-      #         repo_root_dir: "${{ variables.self_repo_dir }}"
-      #         project_root_dir: "${{ variables.self_project_dir }}"
-      #         pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
-      #         # Maven
-      #         maven_cache_directory: "${{ variables.maven_cache_directory }}"
-      #         maven_surefire_reports_dir: "${{ variables.maven_surefire_reports_dir }}"
-      #         maven_allowed_test_tags: "${{ variables.maven_allowed_test_tags}}"
-      #         maven_package_version: "${{ variables.maven_package_version }}"
-      #         maven_pom_file: "${{ variables.maven_archetype_pom_file }}"
-      #         maven_archetype_properties_file: "${{ variables.maven_archetype_properties_file }}"
-      #         maven_settings_file: "${{ variables.maven_settings_file }}"
-      #         maven_repository_server: "${{ variables.maven_repository_server }}"
-      #         # OSSRH
-      #         ossrh_jira_id: "$(ossrh-jira-id)"
-      #         ossrh_jira_password: "$(ossrh-jira-password)"
-      #         # Docker
-      #         docker_build_container: "${{ variables.docker_java_image }}"
-      #         project_type: "${{ variables.java_project_type }}"
-      #         build_type: "${{ variables.build_type }}"
-      #         # private key id to sign doc
-      #         gpg_private_key: "$(gpg-private-key)"
-      #         gpg_key_signing_id: "$(gpg-key-signing-id)"
+          # Builds the Java archetype and deploy to the artifact repository
+          - template: azDevOps/azure/templates/steps/java/build-java-archetype.yml@templates
+            parameters:
+              repo_root_dir: "${{ variables.self_repo_dir }}"
+              project_root_dir: "${{ variables.self_project_dir }}"
+              pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
+              # Maven
+              maven_cache_directory: "${{ variables.maven_cache_directory }}"
+              maven_package_version: "${{ variables.maven_package_version }}"
+              maven_archetype_properties_file: "${{ variables.maven_archetype_properties_file }}"
+              # maven_pom_file: "${{ variables.maven_archetype_pom_file }}"
+              # Docker
+              docker_build_container: "${{ variables.docker_java_image }}"
+              project_type: "${{ variables.java_project_type }}"
+              build_type: "${{ variables.build_type }}"
 
-      #     - task: PowerShell@2
-      #       condition: eq(variables['build_type'], 'RELEASE')
-      #       inputs:
-      #         targetType: inline
-      #         script: |
-      #           Import-Module /modules/EnsonoBuild
-      #           Publish-GitHubRelease -GenerateReleaseNotes $true -UploadArtifacts $false
-      #       env:
-      #         STAGE: "release"
-      #         PUBLISH_RELEASE: "true"
-      #       target:
-      #         container: k8s_deploy
-      #       displayName: Publish GitHub Release
+          # Deploy to the Maven Repository
+          - template: azDevOps/azure/templates/steps/java/deploy-java.yml@templates
+            parameters:
+              repo_root_dir: "${{ variables.self_repo_dir }}"
+              project_root_dir: "${{ variables.maven_archetype_directory }}"
+              pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
+              # Docker
+              docker_build_container: "${{ variables.docker_java_image }}"
+              # Project
+              project_type: "${{ variables.java_project_type }}"
+              build_type: "${{ variables.build_type }}"
+              # MAVEN CENTRAL
+              maven_id: "$(MAVEN_ID)"
+              maven_username: "$(MAVEN_USERNAME)"
+              maven_password: "$(MAVEN_PASSWORD)"
+              # private key id to sign doc
+              gpg_key_signing_id: "$(gpg-key-signing-id)"
+              gpg_private_key: "$(gpg-private-key)"
+
+          - task: PowerShell@2
+            condition: eq(variables['build_type'], '')
+            inputs:
+              targetType: inline
+              script: |
+                Import-Module /modules/EnsonoBuild
+                Publish-GitHubRelease -GenerateReleaseNotes $true -UploadArtifacts $false
+            env:
+              STAGE: "release"
+              PUBLISH_RELEASE: "true"
+            target:
+              container: k8s_deploy
+            displayName: Publish GitHub Release

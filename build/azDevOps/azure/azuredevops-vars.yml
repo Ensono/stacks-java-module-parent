@@ -49,9 +49,9 @@ variables:
     value: 0
   - name: build_type
     ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
-      value: "RELEASE"
+      value: ""
     ${{ else }}:
-      value: "PR"
+      value: "-PR"
 
   # PR / Branch vars
   - name: source_branch_ref
@@ -93,17 +93,10 @@ variables:
     value: "target/surefire-reports"
   - name: maven_allowed_test_tags
     value: "Unit | Component | Integration"
-  - name: maven_archetype_pom_file
-    value: "target/generated-sources/archetype/pom.xml"
+  - name: maven_archetype_directory
+    value: "target/generated-sources/archetype"
   - name: maven_archetype_properties_file
     value: "archetype.properties"
-  - name: maven_settings_file
-    value: "./.mvn/settings.xml"
-  - name: maven_repository_server
-    ${{ if eq( variables['Build.SourceBranchName'], 'main' ) }}:
-      value: ossrh::https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/
-    ${{ if ne( variables['Build.SourceBranchName'], 'main' ) }}:
-      value: ossrh::https://s01.oss.sonatype.org/content/repositories/snapshots
 
   # Vulnerability Scan
   - name: vulnerability_scan
