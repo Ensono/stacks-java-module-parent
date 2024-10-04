@@ -121,6 +121,7 @@ stages:
             parameters:
               repo_root_dir: "${{ variables.self_repo_dir }}"
               project_root_dir: "${{ variables.self_project_dir }}"
+              pom_dir: "${{ variables.self_project_dir }}"
               pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
@@ -190,19 +191,20 @@ stages:
               # maven_pom_file: "${{ variables.maven_archetype_pom_file }}"
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
-              project_type: "${{ variables.java_project_type }}"
+              project_type: "${{ variables.java_project_type }} Archetype"
               build_type: "${{ variables.build_type }}"
 
           # Deploy to the Maven Repository
           - template: azDevOps/azure/templates/steps/java/deploy-java.yml@templates
             parameters:
               repo_root_dir: "${{ variables.self_repo_dir }}"
-              project_root_dir: "${{ variables.maven_archetype_directory }}"
+              project_root_dir: "${{ variables.self_project_dir }}"
+              pom_dir: "${{ variables.maven_archetype_directory }}"
               pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
               # Project
-              project_type: "${{ variables.java_project_type }}"
+              project_type: "${{ variables.java_project_type }} Archetype"
               build_type: "${{ variables.build_type }}"
               # MAVEN CENTRAL
               maven_id: "$(MAVEN_ID)"
