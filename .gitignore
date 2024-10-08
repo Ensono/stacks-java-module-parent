@@ -8,6 +8,8 @@
 
 .gradle
 
+settings.xml
+
 java/target/
 api-tests/target
 java/build/

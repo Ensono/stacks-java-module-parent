@@ -53,6 +53,7 @@ stages:
       - group: stacks-java-modules
       - group: stacks-java-module-parent
       - group: maven-credentials
+      - group: release-github-credentials
     jobs:
       - job: ModuleBuild
         pool:
@@ -159,62 +160,7 @@ stages:
               # Docker
               docker_build_container: "${{ variables.docker_java_image }}"
 
-      - job: ArchetypeBuild
-        dependsOn: ModuleBuild
-        pool:
-          vmImage: $(pool_vm_image)
-        variables:
-          - group: release-github-credentials
-        steps:
-          - checkout: self
-
-          - checkout: templates
-
-          # Validates all YAML files in the repo to check they adhere to standards
-          - template: azDevOps/azure/templates/steps/java/test-validate-yaml.yml@templates
-            parameters:
-              pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
-              container: "k8s_deploy"
-              yamllint_config_file: "${{ variables.yamllint_config_file }}"
-              yamllint_scan_directory: "${{ variables.yamllint_scan_directory }}"
-
-          # Builds the Java archetype
-          - template: azDevOps/azure/templates/steps/java/build-java-archetype.yml@templates
-            parameters:
-              repo_root_dir: "${{ variables.self_repo_dir }}"
-              project_root_dir: "${{ variables.self_project_dir }}"
-              pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
-              # Maven
-              maven_cache_directory: "${{ variables.maven_cache_directory }}"
-              maven_package_version: "${{ variables.maven_package_version }}"
-              maven_archetype_properties_file: "${{ variables.maven_archetype_properties_file }}"
-              # maven_pom_file: "${{ variables.maven_archetype_pom_file }}"
-              # Docker
-              docker_build_container: "${{ variables.docker_java_image }}"
-              project_type: "${{ variables.java_project_type }} Archetype"
-              build_type: "${{ variables.build_type }}"
-
-          # Deploy to the Maven Repository
-          - template: azDevOps/azure/templates/steps/java/deploy-java.yml@templates
-            parameters:
-              repo_root_dir: "${{ variables.self_repo_dir }}"
-              project_root_dir: "${{ variables.self_project_dir }}"
-              pom_dir: "${{ variables.maven_archetype_directory }}"
-              pipeline_scripts_directory: "${{ variables.self_pipeline_scripts_dir }}"
-              # Docker
-              docker_build_container: "${{ variables.docker_java_image }}"
-              # Project
-              project_type: "${{ variables.java_project_type }} Archetype"
-              build_type: "${{ variables.build_type }}"
-              # MAVEN CENTRAL
-              maven_id: "$(MAVEN_ID)"
-              maven_username: "$(MAVEN_USERNAME)"
-              maven_password: "$(MAVEN_PASSWORD)"
-              maven_package_version: "${{ variables.maven_package_version }}"
-              # private key id to sign doc
-              gpg_key_signing_id: "$(gpg-key-signing-id)"
-              gpg_private_key: "$(gpg-private-key)"
-
+          # Release
           - task: PowerShell@2
             condition: eq(variables['build_type'], '')
             inputs:
