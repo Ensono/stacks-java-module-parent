@@ -93,10 +93,6 @@ variables:
     value: "target/surefire-reports"
   - name: maven_allowed_test_tags
     value: "Unit | Component | Integration"
-  - name: maven_archetype_directory
-    value: "${{ variables.self_repo_dir }}/target/generated-sources/archetype"
-  - name: maven_archetype_properties_file
-    value: "archetype.properties"
 
   # Vulnerability Scan
   - name: vulnerability_scan
