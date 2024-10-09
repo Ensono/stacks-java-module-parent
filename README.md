@@ -29,7 +29,7 @@ In the `parent` section of your application's `pom.xml` add:
 
 ```xml
 <dependency>
-    <groupId>com.amido.stacks.modules</groupId>
+    <groupId>com.ensono.stacks.modules</groupId>
     <artifactId>stacks-modules-parent</artifactId>
     <version>1.0.1</version>
     <type>pom</type>
