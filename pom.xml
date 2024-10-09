@@ -61,7 +61,7 @@
     <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
     <oauth2-oidc-sdk.version>11.20</oauth2-oidc-sdk.version>
-    <json.smart.version>2.5.0</json.smart.version>
+    <json.smart.version>2.5.1</json.smart.version>
     <beust.version>1.82</beust.version>
     <snake.yaml.version>2.2</snake.yaml.version>
 
