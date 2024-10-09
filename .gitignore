@@ -8,6 +8,10 @@
 
 .gradle
 
+gpg_private_key.asc
+
+settings.xml
+
 java/target/
 api-tests/target
 java/build/
