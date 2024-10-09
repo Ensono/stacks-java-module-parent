@@ -41,31 +41,31 @@
     <!-- Dependency versions definitions-->
     <lombok.version>1.18.34</lombok.version>
     <auth0-spring-security-api.version>1.5.3</auth0-spring-security-api.version>
-    <equals-verifier.version>3.14.1</equals-verifier.version>
+    <equals-verifier.version>3.17.1</equals-verifier.version>
     <hamcrest.version>3.0</hamcrest.version>
-    <fmt-maven-plugin.version>2.12</fmt-maven-plugin.version>
+    <fmt-maven-plugin.version>2.13</fmt-maven-plugin.version>
     <io-projectreactor-netty.version>1.1.22</io-projectreactor-netty.version>
     <jackson.version>2.17.2</jackson.version>
     <jacoco.version>0.8.12</jacoco.version>
     <junit-jupiter.version>5.11.0</junit-jupiter.version>
-    <mockito.version>5.13.0</mockito.version>
+    <mockito.version>5.14.1</mockito.version>
     <pitest.version>1.17.0</pitest.version>
     <pitest-junit5-plugin.version>1.2.1</pitest-junit5-plugin.version>
-    <puppycrawl-tools-checkstyle.version>10.18.1</puppycrawl-tools-checkstyle.version>
+    <puppycrawl-tools-checkstyle.version>10.18.2</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.2.3</spotbugs-maven-plugin.version>
-    <spotbugs.version>4.2.3</spotbugs.version>
+    <spotbugs.version>4.8.6.4</spotbugs.version>
     <assertj-core.version>3.24.2</assertj-core.version>
-    <netty.version>4.1.113.Final</netty.version>
+    <netty.version>4.1.114.Final</netty.version>
     <logback.version>1.5.9</logback.version>
     <projectreactor.version>2023.0.9</projectreactor.version>
-    <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
+    <org.mapstruct.version>1.6.2</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
     <oauth2-oidc-sdk.version>11.20</oauth2-oidc-sdk.version>
-    <json.smart.version>2.5.0</json.smart.version>
+    <json.smart.version>2.5.1</json.smart.version>
     <beust.version>1.82</beust.version>
     <snake.yaml.version>2.2</snake.yaml.version>
 
-    <spring.boot.version>3.3.3</spring.boot.version>
+    <spring.boot.version>3.3.4</spring.boot.version>
     <java.version>17</java.version>
 
     <!-- https://security.snyk.io/vuln/SNYK-JAVA-COMGOOGLECODEGSON-1730327 -->
