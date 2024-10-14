@@ -54,7 +54,7 @@
     <puppycrawl-tools-checkstyle.version>10.18.2</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.8.6.4</spotbugs-maven-plugin.version>
     <spotbugs.version>4.8.6</spotbugs.version>
-    <assertj-core.version>3.24.2</assertj-core.version>
+    <assertj-core.version>3.26.3</assertj-core.version>
     <netty.version>4.1.114.Final</netty.version>
     <logback.version>1.5.9</logback.version>
     <projectreactor.version>2023.0.9</projectreactor.version>
