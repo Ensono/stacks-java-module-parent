@@ -161,7 +161,7 @@ stages:
               docker_build_container: "${{ variables.docker_java_image }}"
 
           # Release
-          - ${{ if eq(parameters.vulnerability_scan, true) }}:
+          - ${{ if eq(variables['Build.SourceBranchName'], 'main') }}:
               - task: PowerShell@2
                 inputs:
                   targetType: inline
