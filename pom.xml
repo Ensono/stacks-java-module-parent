@@ -60,7 +60,7 @@
     <projectreactor.version>2023.0.9</projectreactor.version>
     <org.mapstruct.version>1.6.2</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
-    <oauth2-oidc-sdk.version>11.20.1</oauth2-oidc-sdk.version>
+    <oauth2-oidc-sdk.version>11.22.1</oauth2-oidc-sdk.version>
     <json.smart.version>2.5.1</json.smart.version>
     <beust.version>1.82</beust.version>
     <snake.yaml.version>2.3</snake.yaml.version>
