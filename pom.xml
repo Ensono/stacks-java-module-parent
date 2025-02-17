@@ -63,7 +63,7 @@
     <oauth2-oidc-sdk.version>11.20.1</oauth2-oidc-sdk.version>
     <json.smart.version>2.5.2</json.smart.version>
     <beust.version>1.82</beust.version>
-    <snake.yaml.version>2.3</snake.yaml.version>
+    <snake.yaml.version>2.4</snake.yaml.version>
 
     <spring.boot.version>3.3.4</spring.boot.version>
     <java.version>17</java.version>
