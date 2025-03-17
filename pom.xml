@@ -44,7 +44,7 @@
     <equals-verifier.version>3.17.1</equals-verifier.version>
     <hamcrest.version>3.0</hamcrest.version>
     <fmt-maven-plugin.version>2.13</fmt-maven-plugin.version>
-    <io-projectreactor-netty.version>1.1.22</io-projectreactor-netty.version>
+    <io-projectreactor-netty.version>1.2.4</io-projectreactor-netty.version>
     <jackson.version>2.18.0</jackson.version>
     <jacoco.version>0.8.12</jacoco.version>
     <junit-jupiter.version>5.11.2</junit-jupiter.version>
