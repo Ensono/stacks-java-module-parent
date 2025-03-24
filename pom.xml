@@ -65,7 +65,7 @@
     <beust.version>1.82</beust.version>
     <snake.yaml.version>2.3</snake.yaml.version>
 
-    <spring.boot.version>3.3.4</spring.boot.version>
+    <spring.boot.version>3.4.4</spring.boot.version>
     <java.version>17</java.version>
 
     <!-- https://security.snyk.io/vuln/SNYK-JAVA-COMGOOGLECODEGSON-1730327 -->
