@@ -41,7 +41,7 @@
     <!-- Dependency versions definitions-->
     <lombok.version>1.18.34</lombok.version>
     <auth0-spring-security-api.version>1.5.3</auth0-spring-security-api.version>
-    <equals-verifier.version>3.17.1</equals-verifier.version>
+    <equals-verifier.version>3.19.3</equals-verifier.version>
     <hamcrest.version>3.0</hamcrest.version>
     <fmt-maven-plugin.version>2.13</fmt-maven-plugin.version>
     <io-projectreactor-netty.version>1.1.22</io-projectreactor-netty.version>
