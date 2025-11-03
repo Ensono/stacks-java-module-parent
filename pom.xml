@@ -294,6 +294,12 @@
               </execution>
             </executions>
             <configuration>
+              <!-- NVD API Key can be provided via:
+                   1. Environment variable: NVD_API_KEY
+                   2. Maven property: -Dnvd.api.key=your-key
+                   3. Maven settings.xml: <nvd.api.key>your-key</nvd.api.key>
+              -->
+              <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
             </configuration>
           </plugin>
         </plugins>
