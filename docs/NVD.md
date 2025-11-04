@@ -1,0 +1,129 @@
+# NVD API Key Configuration
+
+## Problem
+
+OWASP dependency scans run **15-60+ minutes without an NVD API key**, vs **2-5 minutes with one**.
+
+Build warning:
+
+```
+[WARNING] An NVD API Key was not provided - it is highly recommended to use
+          an NVD API key as the update can take a VERY long time without an API Key
+```
+
+## Solution
+
+### 1. Request NVD API Key
+
+Visit: https://nvd.nist.gov/developers/request-an-api-key (free, ~5 min)
+
+### 2. Add to Azure DevOps Library
+
+1. **Pipelines → Library**
+2. Find variable group: `stacks-java-module-parent`
+3. Add secret:
+   - **Name**: `VULNERABILITY_SCAN_API_KEY`
+   - **Value**: `<your-nvd-api-key>`
+   - **Mark as secret**: ✅
+
+### 3. Verify
+
+Queue a new build. Look for in logs:
+
+```
+[INFO] Using NVD API Key to download latest vulnerability data  ✅
+```
+
+## How It Works
+
+```
+Azure DevOps Secret (VULNERABILITY_SCAN_API_KEY)
+        ↓
+Pipeline YAML (azure-pipelines-javaspring-deploy.yml)
+        ↓
+Variable Definition (azuredevops-vars.yml)
+        ↓
+Build Template (stacks-pipeline-templates)
+        ↓
+Environment Variable (NVD_API_KEY)
+        ↓
+Maven pom.xml
+        ↓
+OWASP Plugin → NVD API
+```
+
+## Configuration Files
+
+| File                                    | Line    | Purpose                                     | Status     |
+| --------------------------------------- | ------- | ------------------------------------------- | ---------- |
+| `pom.xml`                               | 302     | `<nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>` | ✅ Ready   |
+| `azure-pipelines-javaspring-deploy.yml` | 50      | Load variable group                         | ✅ Ready   |
+| `azure-pipelines-javaspring-deploy.yml` | 88      | Pass to template                            | ✅ Ready   |
+| `azuredevops-vars.yml`                  | 104-106 | Map to secret                               | ✅ Ready   |
+| Azure DevOps Library                    | —       | **NEEDS SETUP**                             | ❌ Missing |
+
+## Local Development
+
+Run security scans locally with API key:
+
+```bash
+# Option 1: Environment Variable
+export NVD_API_KEY="your-api-key"
+./mvnw -P owasp-dependency-check clean verify
+
+# Option 2: Maven Property
+./mvnw -P owasp-dependency-check clean verify -Dnvd.api.key=your-api-key
+
+# Option 3: Maven Settings
+# Add to ~/.m2/settings.xml: <nvd.api.key>your-api-key</nvd.api.key>
+```
+
+## Troubleshooting
+
+### Still Seeing Warning After Setup?
+
+1. Verify variable group name: must be **exactly** `stacks-java-module-parent`
+2. Verify secret name: must be **exactly** `VULNERABILITY_SCAN_API_KEY`
+3. Queue a new build (first build with secret may need explicit trigger)
+4. Wait 1-2 builds for Azure DevOps to propagate
+
+### API Key Not Working?
+
+1. Verify format: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (valid UUID)
+2. Request new key: https://nvd.nist.gov/developers/request-an-api-key (old keys may expire)
+3. Check network: Build agent must reach `https://services.nvd.nist.gov/`
+
+### Rate Limiting?
+
+NVD API has rate limits. If you see rate limit errors, wait a few minutes and retry.
+
+## Performance Impact
+
+| Scenario        | Scan Time         |
+| --------------- | ----------------- |
+| Without API Key | 15-60+ min        |
+| With API Key    | 2-5 min           |
+| **Speedup**     | **10-50x faster** |
+
+## Security
+
+✅ **Best Practices**:
+
+- Secret stored encrypted in Azure DevOps Library
+- Automatically masked in build logs
+- Not stored in source code
+- Only accessible to authorized pipelines
+
+⚠️ **Never**:
+
+- Commit API key to Git
+- Put in plain text YAML
+- Log or print in builds
+- Share across organizations
+
+## References
+
+- [NVD API](https://nvd.nist.gov/developers/start-here)
+- [OWASP Dependency-Check](https://jeremylong.github.io/DependencyCheck_Plugin/)
+- [Azure DevOps Library](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/)
+- [Azure DevOps Secret Variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables)
