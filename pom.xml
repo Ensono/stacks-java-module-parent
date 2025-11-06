@@ -88,6 +88,8 @@
     <maven-site-plugin.version>3.21.0</maven-site-plugin.version>
     <maven-failsafe-plugin.version>3.5.4</maven-failsafe-plugin.version>
     <maven-central-publishing-plugin.version>0.6.0</maven-central-publishing-plugin.version>
+    <!-- Default NVD API key source; can be overridden via -DnvdApiKey or -Dnvd.api.key -->
+    <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
   </properties>
 
   <!-- Dependencies shared by ALL modules-->
@@ -296,10 +298,10 @@
             <configuration>
               <!-- NVD API Key can be provided via:
                    1. Environment variable: NVD_API_KEY
-                   2. Maven property: -Dnvd.api.key=your-key
+                   2. Maven property: -DnvdApiKey=your-key or -Dnvd.api.key=your-key
                    3. Maven settings.xml: <nvd.api.key>your-key</nvd.api.key>
               -->
-              <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
+              <nvdApiKey>${nvdApiKey}</nvdApiKey>
             </configuration>
           </plugin>
         </plugins>
