@@ -39,25 +39,25 @@
 
   <properties>
     <!-- Dependency versions definitions-->
-    <lombok.version>1.18.34</lombok.version>
+    <lombok.version>1.18.42</lombok.version>
     <auth0-spring-security-api.version>1.5.3</auth0-spring-security-api.version>
-    <equals-verifier.version>3.19.4</equals-verifier.version>
+    <equals-verifier.version>4.2.1</equals-verifier.version>
     <hamcrest.version>3.0</hamcrest.version>
     <fmt-maven-plugin.version>2.13</fmt-maven-plugin.version>
-    <io-projectreactor-netty.version>1.1.22</io-projectreactor-netty.version>
+    <io-projectreactor-netty.version>1.2.11</io-projectreactor-netty.version>
     <jackson.version>2.20.0</jackson.version>
     <jacoco.version>0.8.12</jacoco.version>
-    <junit-jupiter.version>5.11.2</junit-jupiter.version>
-    <mockito.version>5.14.1</mockito.version>
+    <junit-jupiter.version>6.0.1</junit-jupiter.version>
+    <mockito.version>5.20.0</mockito.version>
     <pitest.version>1.17.0</pitest.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
     <puppycrawl-tools-checkstyle.version>12.1.1</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.9.8.1</spotbugs-maven-plugin.version>
-    <spotbugs.version>4.8.6</spotbugs.version>
-    <assertj-core.version>3.26.3</assertj-core.version>
+    <spotbugs.version>4.9.8</spotbugs.version>
+    <assertj-core.version>3.27.6</assertj-core.version>
     <netty.version>4.1.125.Final</netty.version>
-    <logback.version>1.5.13</logback.version>
-    <projectreactor.version>2023.0.9</projectreactor.version>
+    <logback.version>1.5.20</logback.version>
+    <projectreactor.version>2024.0.11</projectreactor.version>
     <org.mapstruct.version>1.6.3</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
     <oauth2-oidc-sdk.version>11.30</oauth2-oidc-sdk.version>
@@ -69,7 +69,7 @@
     <java.version>17</java.version>
 
     <!-- https://security.snyk.io/vuln/SNYK-JAVA-COMGOOGLECODEGSON-1730327 -->
-    <com.google.code.gson-version>2.11.0</com.google.code.gson-version>
+    <com.google.code.gson-version>2.13.2</com.google.code.gson-version>
 
     <!-- Set the encoding to UTF-8 -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -77,7 +77,7 @@
 
     <!-- Maven plugins -->
     <maven.compiler.release>17</maven.compiler.release>
-    <maven-checkstyle-plugin.version>3.5.0</maven-checkstyle-plugin.version>
+    <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
     <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
     <maven-surefire-phase>test</maven-surefire-phase>
     <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
@@ -88,6 +88,8 @@
     <maven-site-plugin.version>3.21.0</maven-site-plugin.version>
     <maven-failsafe-plugin.version>3.5.4</maven-failsafe-plugin.version>
     <maven-central-publishing-plugin.version>0.6.0</maven-central-publishing-plugin.version>
+    <!-- Default NVD API key source; can be overridden via -DnvdApiKey or -Dnvd.api.key -->
+    <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
   </properties>
 
   <!-- Dependencies shared by ALL modules-->
@@ -296,10 +298,10 @@
             <configuration>
               <!-- NVD API Key can be provided via:
                    1. Environment variable: NVD_API_KEY
-                   2. Maven property: -Dnvd.api.key=your-key
+                   2. Maven property: -DnvdApiKey=your-key or -Dnvd.api.key=your-key
                    3. Maven settings.xml: <nvd.api.key>your-key</nvd.api.key>
               -->
-              <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
+              <nvdApiKey>${nvdApiKey}</nvdApiKey>
             </configuration>
           </plugin>
         </plugins>
