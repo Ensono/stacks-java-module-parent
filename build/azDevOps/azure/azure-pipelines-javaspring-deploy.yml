@@ -119,7 +119,6 @@ stages:
 
           # Deploy to the Maven Repository
           - template: azDevOps/azure/templates/steps/java/deploy-java.yml@templates
-            timeoutInMinutes: 60
             parameters:
               repo_root_dir: "${{ variables.self_repo_dir }}"
               project_root_dir: "${{ variables.self_project_dir }}"
