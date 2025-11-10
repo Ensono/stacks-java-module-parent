@@ -41,26 +41,26 @@
     <!-- Dependency versions definitions-->
     <lombok.version>1.18.42</lombok.version>
     <auth0-spring-security-api.version>1.5.3</auth0-spring-security-api.version>
-    <equals-verifier.version>4.2.1</equals-verifier.version>
+    <equals-verifier.version>4.2.2</equals-verifier.version>
     <hamcrest.version>3.0</hamcrest.version>
     <fmt-maven-plugin.version>2.13</fmt-maven-plugin.version>
-    <io-projectreactor-netty.version>1.2.11</io-projectreactor-netty.version>
+    <io-projectreactor-netty.version>1.3.0</io-projectreactor-netty.version>
     <jackson.version>2.20.0</jackson.version>
-    <jacoco.version>0.8.12</jacoco.version>
+    <jacoco.version>0.8.14</jacoco.version>
     <junit-jupiter.version>6.0.1</junit-jupiter.version>
     <mockito.version>5.20.0</mockito.version>
-    <pitest.version>1.17.0</pitest.version>
+    <pitest.version>1.21.1</pitest.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
     <puppycrawl-tools-checkstyle.version>12.1.1</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.9.8.1</spotbugs-maven-plugin.version>
     <spotbugs.version>4.9.8</spotbugs.version>
     <assertj-core.version>3.27.6</assertj-core.version>
-    <netty.version>4.1.125.Final</netty.version>
+    <netty.version>4.2.7.Final</netty.version>
     <logback.version>1.5.20</logback.version>
-    <projectreactor.version>2024.0.11</projectreactor.version>
+    <projectreactor.version>2025.0.0</projectreactor.version>
     <org.mapstruct.version>1.6.3</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
-    <oauth2-oidc-sdk.version>11.30</oauth2-oidc-sdk.version>
+    <oauth2-oidc-sdk.version>11.30.1</oauth2-oidc-sdk.version>
     <json.smart.version>2.6.0</json.smart.version>
     <beust.version>1.82</beust.version>
     <snake.yaml.version>2.5</snake.yaml.version>
@@ -83,11 +83,11 @@
     <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
     <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
     <maven-owasp-dependency-check-plugin.version>12.1.8</maven-owasp-dependency-check-plugin.version>
-    <maven-javadoc-plugin.version>3.10.0</maven-javadoc-plugin.version>
+    <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
     <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
     <maven-site-plugin.version>3.21.0</maven-site-plugin.version>
     <maven-failsafe-plugin.version>3.5.4</maven-failsafe-plugin.version>
-    <maven-central-publishing-plugin.version>0.6.0</maven-central-publishing-plugin.version>
+    <maven-central-publishing-plugin.version>0.9.0</maven-central-publishing-plugin.version>
     <!-- Default NVD API key source; can be overridden via -DnvdApiKey or -Dnvd.api.key -->
     <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
   </properties>
