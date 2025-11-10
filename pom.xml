@@ -224,7 +224,8 @@
       <!-- Registering the Auth0 Dependency-->
       <dependency>
         <groupId>com.auth0</groupId>
-        <artifactId>auth0-spring-security-api</artifactId>.1 <version>${auth0-spring-security-api.version}</version>
+        <artifactId>auth0-spring-security-api</artifactId>
+        <version>${auth0-spring-security-api.version}</version>
       </dependency>
       <dependency>
         <groupId>org.pitest</groupId>
