@@ -57,7 +57,7 @@
     <assertj-core.version>3.27.6</assertj-core.version>
     <netty.version>4.1.125.Final</netty.version>
     <logback.version>1.5.20</logback.version>
-    <projectreactor.version>2024.0.11</projectreactor.version>
+    <projectreactor.version>2025.0.0</projectreactor.version>
     <org.mapstruct.version>1.6.3</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
     <oauth2-oidc-sdk.version>11.30</oauth2-oidc-sdk.version>
