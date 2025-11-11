@@ -13,9 +13,8 @@
       "url": "https://api.githubcopilot.com/mcp/"
     },
     "maven": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["mcp-maven-deps"]
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "arvindand/maven-tools-mcp:latest"]
     },
     "ado": {
       "type": "stdio",
