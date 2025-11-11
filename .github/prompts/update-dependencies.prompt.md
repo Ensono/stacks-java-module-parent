@@ -2,7 +2,7 @@
 mode: agent
 model: Auto (copilot)
 # prettier-ignore
-tools: ["maven/*", "github/pull_request_read", "github/list_pull_requests", "github/create_pull_request", "github/update_pull_request", "ado/advsec_get_alert_details", "ado/advsec_get_alerts", "ado/pipelines_get_builds", "ado/pipelines_get_build_log", "ado/pipelines_get_build_log_by_id", "ado/pipelines_get_build_status", "ado/pipelines_get_builds", "ado/pipelines_list_runs", "ado/pipelines_get_run"]
+tools: ['changes', 'vscodeAPI', 'codebase', 'maven/*', 'ado/advsec_get_alert_details', 'ado/advsec_get_alerts', 'ado/pipelines_get_build_log', 'ado/pipelines_get_build_log_by_id', 'ado/pipelines_get_build_status', 'ado/pipelines_get_builds', 'ado/pipelines_get_run', 'ado/pipelines_list_runs', 'github/add_issue_comment', 'github/create_pull_request', 'github/get_me', 'github/list_pull_requests', 'github/pull_request_read', 'github/update_pull_request']
 description: This prompt is designed to assist with managing and updating dependencies in a Maven project.
 ---
 
