@@ -1,8 +1,25 @@
 {
+  "inputs": [
+    {
+      "id": "ado_org",
+      "type": "promptString",
+      "default": "ensonodigitaluk",
+      "description": "Azure DevOps organization name  (e.g. 'ensonodigitaluk')"
+    }
+  ],
   "servers": {
     "github": {
       "type": "http",
       "url": "https://api.githubcopilot.com/mcp/"
+    },
+    "maven": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "arvindand/maven-tools-mcp:latest"]
+    },
+    "ado": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@azure-devops/mcp", "${input:ado_org}"]
     }
   }
 }
