@@ -51,12 +51,12 @@
     <mockito.version>5.20.0</mockito.version>
     <pitest.version>1.21.1</pitest.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
-    <puppycrawl-tools-checkstyle.version>12.1.1</puppycrawl-tools-checkstyle.version>
+    <puppycrawl-tools-checkstyle.version>12.1.2</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.9.8.1</spotbugs-maven-plugin.version>
     <spotbugs.version>4.9.8</spotbugs.version>
     <assertj-core.version>3.27.6</assertj-core.version>
     <netty.version>4.2.7.Final</netty.version>
-    <logback.version>1.5.20</logback.version>
+    <logback.version>1.5.21</logback.version>
     <projectreactor.version>2025.0.0</projectreactor.version>
     <org.mapstruct.version>1.6.3</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
@@ -82,7 +82,7 @@
     <maven-surefire-phase>test</maven-surefire-phase>
     <maven-surefire-plugin.version>3.5.4</maven-surefire-plugin.version>
     <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
-    <maven-owasp-dependency-check-plugin.version>12.1.8</maven-owasp-dependency-check-plugin.version>
+    <maven-owasp-dependency-check-plugin.version>12.1.9</maven-owasp-dependency-check-plugin.version>
     <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
     <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
     <maven-site-plugin.version>3.21.0</maven-site-plugin.version>
