@@ -49,7 +49,7 @@
     <jacoco.version>0.8.14</jacoco.version>
     <junit-jupiter.version>6.0.1</junit-jupiter.version>
     <mockito.version>5.20.0</mockito.version>
-    <pitest.version>1.21.1</pitest.version>
+    <pitest.version>1.22.0</pitest.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
     <puppycrawl-tools-checkstyle.version>12.1.2</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.9.8.1</spotbugs-maven-plugin.version>
