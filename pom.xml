@@ -66,6 +66,7 @@
     <snake.yaml.version>2.5</snake.yaml.version>
 
     <spring.boot.version>3.5.7</spring.boot.version>
+    <spring.cloud.dependencies.version>2025.0.0</spring.cloud.dependencies.version>
     <java.version>17</java.version>
 
     <!-- https://security.snyk.io/vuln/SNYK-JAVA-COMGOOGLECODEGSON-1730327 -->
@@ -193,6 +194,13 @@
         <scope>import</scope>
       </dependency>
       <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>${spring.cloud.dependencies.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-core</artifactId>
         <version>${logback.version}</version>
@@ -315,6 +323,20 @@
   </profiles>
 
   <build>
+    <!-- Resource filtering for property placeholder replacement (e.g., @property.name@) -->
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+      </testResource>
+    </testResources>
+
     <pluginManagement>
       <!-- default plugin configuration goes here -->
       <plugins>
