@@ -24,19 +24,9 @@ Update `spring.cloud.dependencies.version` to a version compatible with Spring B
 | 3.0.x, 3.1.x        | 2022.0.x (Kilburn)              |
 | 3.2.x               | 2023.0.x (Leyton)               |
 | 3.3.x, 3.4.x        | 2024.0.x                        |
-| 3.5.x               | 2025.0.x (when available)       |
+| 3.5.x               | 2025.0.x                        |
 
-**Workaround (current):**  
-Projects can disable the compatibility verifier in `application-test.yml`:
-
-```yaml
-spring:
-  cloud:
-    compatibility-verifier:
-      enabled: false
-```
-
-**Action Required:** Update parent POM to use Spring Cloud 2024.0.x or later (once 2025.0.x is available for Spring Boot 3.5.x support).
+**Action Required:** Update parent POM to use Spring Cloud 2025.0.x for Spring Boot 3.5.x support.
 
 ---
 
