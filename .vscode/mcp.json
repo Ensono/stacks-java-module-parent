@@ -14,7 +14,16 @@
     },
     "maven": {
       "command": "docker",
-      "args": ["run", "-i", "--rm", "arvindand/maven-tools-mcp:latest"]
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "docker.io/arvindand/maven-tools-mcp:latest"
+      ]
+    },
+    "nvd": {
+      "command": "docker",
+      "args": ["run", "-i", "--rm", "docker.io/mcp/vuln-nist-mcp-server:latest"]
     },
     "ado": {
       "type": "stdio",

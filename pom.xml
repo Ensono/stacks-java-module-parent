@@ -8,7 +8,7 @@
   <artifactId>stacks-modules-parent</artifactId>
   <!-- NOTE: This will be replaced by the build number in the Pipeline, do NOT use this as the
   version number in your projects -->
-  <version>0.0.0-PR</version>
+  <version>0.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.groupId}:${project.artifactId}</name>
   <description>The parent for all Stacks modules</description>
