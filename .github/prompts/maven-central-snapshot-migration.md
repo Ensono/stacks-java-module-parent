@@ -200,7 +200,7 @@ In the `<build><plugins>` section, add:
 
 ### Configuration Options Explained
 
-- `publishingServerId`: References the `<id>` in your `settings.xml` server configuration
+- `publishingServerId`: References the server `<id>` used in Maven settings (injected by the CI/CD pipeline at build time)
 - `autoPublish`: When `true`, automatically publishes after validation (recommended for CI/CD)
 - `waitUntil`: Can be `uploaded`, `validated`, or `published` - controls how long the build waits
 
@@ -267,71 +267,51 @@ Maven Central requires source JARs, Javadoc JARs, and GPG signatures. Ensure the
 
 ---
 
-## Step 6: Update Maven Settings (settings.xml)
+## Step 6: Configure CI/CD Pipeline Credentials
 
-### 6.1 Remove Old OSSRH Server Configuration
+> **Note**: The `settings.xml` file is in `.gitignore` as it contains credentials that should never be committed. Maven Central credentials are injected by the CI/CD pipeline at build time.
 
-Remove any server entries with id `ossrh`:
+### 6.1 Link the `maven-credentials` Variable Group
 
-```xml
-<!-- REMOVE THIS -->
-<server>
-  <id>ossrh</id>
-  <username>YOUR_OSSRH_USERNAME</username>
-  <password>YOUR_OSSRH_PASSWORD</password>
-</server>
+The Azure DevOps variable group `maven-credentials` contains the required secrets for Maven Central publishing:
+
+| Variable Name    | Description                                        |
+|------------------|----------------------------------------------------|
+| `MAVEN_ID`       | Server ID matching `publishingServerId` in pom.xml |
+| `MAVEN_USERNAME` | Central Portal token username                      |
+| `MAVEN_PASSWORD` | Central Portal token password                      |
+
+Add the variable group to the `variables` section under your build stage:
+
+```yaml
+stages:
+  - stage: Build
+    variables:
+      # ... other variable groups ...
+      - group: maven-credentials
+    jobs:
+      # ...
 ```
 
-### 6.2 Add New Central Portal Server Configuration
+### 6.2 Pass Credentials to Deploy Template
 
-Add the new Central Portal credentials:
+The `stacks-pipeline-templates` deploy step accepts these parameters and generates the Maven `settings.xml` at runtime:
 
-```xml
-<server>
-  <id>central</id>
-  <username><!-- Your Central Portal token username --></username>
-  <password><!-- Your Central Portal token password --></password>
-</server>
+```yaml
+- template: azDevOps/azure/templates/steps/java/deploy-java.yml@templates
+  parameters:
+    # ... other parameters ...
+    # MAVEN CENTRAL
+    maven_id: "$(MAVEN_ID)"
+    maven_username: "$(MAVEN_USERNAME)"
+    maven_password: "$(MAVEN_PASSWORD)"
 ```
 
-> **Important**: Generate your token credentials from the [Central Portal](https://central.sonatype.org/publish/generate-portal-token/). Do NOT use your regular login credentials.
+The pipeline template generates a `settings.xml` file during the build, ensuring credentials are never stored in source control.
 
 ---
 
-## Step 7: Update CI/CD Pipeline
-
-### 7.1 Update Azure DevOps Variables
-
-If using Azure DevOps, update the variable group to use new credential names:
-
-| Old Variable          | New Variable     | Description                     |
-|-----------------------|------------------|---------------------------------|
-| `ossrh-jira-id`       | `MAVEN_USERNAME` | Central Portal token username   |
-| `ossrh-jira-password` | `MAVEN_PASSWORD` | Central Portal token password   |
-| -                     | `MAVEN_ID`       | Server ID (should be `central`) |
-
-### 7.2 Update Pipeline Template Parameters
-
-Update any references from OSSRH to Maven Central:
-
-**Before:**
-
-```yaml
-# OSSRH
-ossrh_jira_id: "$(ossrh-jira-id)"
-ossrh_jira_password: "$(ossrh-jira-password)"
-```
-
-**After:**
-
-```yaml
-# MAVEN CENTRAL
-maven_id: "$(MAVEN_ID)"
-maven_username: "$(MAVEN_USERNAME)"
-maven_password: "$(MAVEN_PASSWORD)"
-```
-
-### 7.3 Update Build Type
+## Step 7: Update Pipeline Build Type
 
 Change from `SNAPSHOT`/`RELEASE` pattern to simpler versioning:
 
@@ -463,7 +443,7 @@ Ensure all these files have been checked and updated where necessary:
 
 - [ ] `pom.xml` - groupId, metadata, plugins, `-SNAPSHOT` version suffix
 - [ ] All `*.java` files - package declarations and imports
-- [ ] `settings.xml` - server credentials
+- [ ] Azure DevOps `maven-credentials` variable group - `MAVEN_ID`, `MAVEN_USERNAME`, `MAVEN_PASSWORD`
 - [ ] `README.md` - dependency coordinates
 - [ ] `LICENSE` - copyright holder
 - [ ] Central Portal namespace - SNAPSHOT publishing enabled
@@ -553,7 +533,7 @@ gpgconf --launch gpg-agent
 
 ### Issue: 401 Unauthorized on Deploy
 
-**Solution**: Verify your Central Portal token credentials in `settings.xml`. Tokens must be generated from the portal, not your login credentials.
+**Solution**: Verify your Central Portal token credentials in the Azure DevOps `maven-credentials` variable group. Ensure `MAVEN_USERNAME` and `MAVEN_PASSWORD` contain valid tokens generated from the [Central Portal](https://central.sonatype.org/publish/generate-portal-token/), not your regular login credentials.
 
 ### Issue: Validation Fails on Maven Central
 
