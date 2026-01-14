@@ -13,7 +13,7 @@ This is a **Maven parent POM** for Ensono Stacks Java modules, not a standalone 
 - **Purpose**: Centralized dependency management and build configuration
 - **Packaging**: `<packaging>pom</packaging>` - no source code, only configuration
 - **Consumption**: Other projects inherit from this via `<parent>` section
-- **Versioning**: Uses `0.0.0-PR` as placeholder - replaced by CI/CD pipeline
+- **Versioning**: Uses `0.0.0-SNAPSHOT` as placeholder - replaced by CI/CD pipeline
 
 ### Dependency Strategy
 

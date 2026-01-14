@@ -1,4 +1,24 @@
 {
   "java.configuration.updateBuildConfiguration": "interactive",
-  "debug.javascript.autoAttachFilter": "disabled"
+  "debug.javascript.autoAttachFilter": "disabled",
+  "cSpell.words": [
+    "amido",
+    "azuredevops",
+    "databind",
+    "Dcentral",
+    "Dgpg",
+    "Dnvd",
+    "Dskip",
+    "fasterxml",
+    "gpgconf",
+    "javadocs",
+    "javaspring",
+    "keyid",
+    "Kilburn",
+    "Leyton",
+    "mvnw",
+    "OSSRH",
+    "sonatype",
+    "springframework"
+  ]
 }
