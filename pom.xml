@@ -67,7 +67,7 @@
 
     <spring.boot.version>3.5.10</spring.boot.version>
     <spring.cloud.dependencies.version>2025.1.0</spring.cloud.dependencies.version>
-    <spring.boot.version>3.5.9</spring.boot.version>
+
     <java.version>17</java.version>
 
     <!-- https://security.snyk.io/vuln/SNYK-JAVA-COMGOOGLECODEGSON-1730327 -->
