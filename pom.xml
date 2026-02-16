@@ -44,10 +44,10 @@
     <equals-verifier.version>4.3.1</equals-verifier.version>
     <hamcrest.version>3.0</hamcrest.version>
     <fmt-maven-plugin.version>2.13</fmt-maven-plugin.version>
-    <io-projectreactor-netty.version>1.3.2</io-projectreactor-netty.version>
+    <io-projectreactor-netty.version>1.3.3</io-projectreactor-netty.version>
     <jackson-bom.version>2.21.0</jackson-bom.version>
     <jacoco.version>0.8.14</jacoco.version>
-    <junit-jupiter.version>6.0.2</junit-jupiter.version>
+    <junit-jupiter.version>6.0.3</junit-jupiter.version>
     <mockito.version>5.21.0</mockito.version>
     <pitest.version>1.22.1</pitest.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
@@ -56,8 +56,8 @@
     <spotbugs.version>4.9.8</spotbugs.version>
     <assertj-core.version>3.27.7</assertj-core.version>
     <netty.version>4.2.10.Final</netty.version>
-    <logback.version>1.5.28</logback.version>
-    <projectreactor.version>2025.0.2</projectreactor.version>
+    <logback.version>1.5.31</logback.version>
+    <projectreactor.version>2025.0.3</projectreactor.version>
     <org.mapstruct.version>1.6.3</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
     <oauth2-oidc-sdk.version>11.33</oauth2-oidc-sdk.version>
