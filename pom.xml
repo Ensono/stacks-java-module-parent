@@ -48,7 +48,7 @@
     <jackson-bom.version>2.21.1</jackson-bom.version>
     <jacoco.version>0.8.14</jacoco.version>
     <junit-jupiter.version>6.0.3</junit-jupiter.version>
-    <mockito.version>5.21.0</mockito.version>
+    <mockito.version>5.22.0</mockito.version>
     <pitest.version>1.22.1</pitest.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
     <puppycrawl-tools-checkstyle.version>12.3.1</puppycrawl-tools-checkstyle.version>
@@ -63,7 +63,7 @@
     <oauth2-oidc-sdk.version>11.33</oauth2-oidc-sdk.version>
     <json.smart.version>2.6.0</json.smart.version>
     <beust.version>1.82</beust.version>
-    <snake.yaml.version>2.5</snake.yaml.version>
+    <snake.yaml.version>2.6</snake.yaml.version>
 
     <spring.boot.version>3.5.11</spring.boot.version>
     <spring.cloud.dependencies.version>2025.1.1</spring.cloud.dependencies.version>
