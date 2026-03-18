@@ -9,6 +9,12 @@
 #############################################################################################################################
 name: $(version_major).$(version_minor).$(Rev:r)$(build_type)
 
+parameters:
+  - name: runVulnerabilityScan
+    displayName: Run OWASP Dependency Check
+    type: boolean
+    default: false
+
 pr:
   - main
 
