@@ -563,8 +563,6 @@
         </executions>
         <configuration>
           <threads>15</threads>
-          <historyInputFile>target/pitHistory.txt</historyInputFile>
-          <historyOutputFile>target/pitHistory.txt</historyOutputFile>
           <timestampedReports>false</timestampedReports>
           <mutators>
             <value>STRONGER</value>
