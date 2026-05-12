@@ -41,7 +41,7 @@ First, think deeply about the most effective search patterns for the requested f
 - Related terms and synonyms that might be used
 
 1. Start with using your grep tool for finding keywords.
-2. Optionally, use glob for file patterns
+2. Optionally, use find to narrow by file-name or path patterns
 3. LS and find your way to victory as well!
 
 ### Refine by Language/Framework
