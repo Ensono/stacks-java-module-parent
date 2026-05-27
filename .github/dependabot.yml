@@ -5,14 +5,24 @@ updates:
     schedule:
       interval: weekly
       day: monday
-      timezone: Europe/London
-    open-pull-requests-limit: 50
+      time: "04:00"
+      timezone: UTC
+    open-pull-requests-limit: 10
+    reviewers:
+      - Ensono/stacks-maintainers
     assignees:
       - RichardSlater
-    rebase-strategy: disabled
+    labels:
+      - dependencies
+    commit-message:
+      prefix: chore(deps)
     groups:
       low-risk:
         applies-to: version-updates
         update-types:
-          - "minor"
-          - "patch"
+          - minor
+          - patch
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 5
