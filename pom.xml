@@ -49,7 +49,7 @@
     <jacoco.version>0.8.14</jacoco.version>
     <junit-jupiter.version>6.1.0</junit-jupiter.version>
     <mockito.version>5.23.0</mockito.version>
-    <pitest.version>1.25.0</pitest.version>
+    <pitest.version>1.25.1</pitest.version>
     <pitest-junit5-plugin.version>1.2.3</pitest-junit5-plugin.version>
     <puppycrawl-tools-checkstyle.version>12.3.1</puppycrawl-tools-checkstyle.version>
     <spotbugs-maven-plugin.version>4.9.8.3</spotbugs-maven-plugin.version>
@@ -81,13 +81,13 @@
     <maven-checkstyle-plugin.version>3.6.0</maven-checkstyle-plugin.version>
     <maven-compiler-plugin.version>3.15.0</maven-compiler-plugin.version>
     <maven-surefire-phase>test</maven-surefire-phase>
-    <maven-surefire-plugin.version>3.5.5</maven-surefire-plugin.version>
+    <maven-surefire-plugin.version>3.5.6</maven-surefire-plugin.version>
     <maven-gpg-plugin.version>3.2.8</maven-gpg-plugin.version>
     <maven-owasp-dependency-check-plugin.version>12.2.2</maven-owasp-dependency-check-plugin.version>
     <maven-javadoc-plugin.version>3.12.0</maven-javadoc-plugin.version>
     <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
     <maven-site-plugin.version>3.22.0</maven-site-plugin.version>
-    <maven-failsafe-plugin.version>3.5.5</maven-failsafe-plugin.version>
+    <maven-failsafe-plugin.version>3.5.6</maven-failsafe-plugin.version>
     <maven-central-publishing-plugin.version>0.10.0</maven-central-publishing-plugin.version>
     <!-- Default NVD API key source; can be overridden via -DnvdApiKey or -Dnvd.api.key -->
     <nvdApiKey>${env.NVD_API_KEY}</nvdApiKey>
