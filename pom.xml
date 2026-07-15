@@ -56,7 +56,7 @@
     <spotbugs.version>4.9.8</spotbugs.version>
     <assertj-core.version>3.27.7</assertj-core.version>
     <netty.version>4.2.14.Final</netty.version>
-    <logback.version>1.5.32</logback.version>
+    <logback.version>1.5.34</logback.version>
     <projectreactor.version>2025.0.5</projectreactor.version>
     <org.mapstruct.version>1.6.3</org.mapstruct.version>
     <org.mapstruct.binding.version>0.2.0</org.mapstruct.binding.version>
